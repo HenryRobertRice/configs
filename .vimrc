@@ -12,8 +12,9 @@ filetype plugin indent on
 "non-plugin stuff MUST go BELOW this line
 "tabs are 2 spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
-"numbered rows
+"hybrid-numbered rows
 set number
+set relativenumber
 "show filename
 set statusline+=%F
 "show line, col, %
