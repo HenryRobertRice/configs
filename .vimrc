@@ -11,7 +11,7 @@ call vundle#end()
 filetype plugin indent on
 "non-plugin stuff MUST go BELOW this line
 "tabs are 2 spaces
-set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 "hybrid-numbered rows
 set number
 set relativenumber
@@ -31,3 +31,5 @@ set gdefault
 "stop tmux from messing with vim colors and font
 set background=dark
 set t_Co=256
+"; =-> : no more WQ!
+nnoremap ; :
