@@ -10,8 +10,8 @@ Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 filetype plugin indent on
 "non-plugin stuff MUST go BELOW this line
-"tabs are 2 spaces
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+"tabs are 4 spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 "hybrid-numbered rows
 set number
 set relativenumber
