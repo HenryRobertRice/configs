@@ -4,6 +4,7 @@ set -o vi
 alias tl="tmux ls"
 alias ta="tmux attach -t"
 alias tn="tmux new -s"
+alias tr="tmux rename -t"
 alias v="vim"
 
 # Everything below this line was here by default
