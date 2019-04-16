@@ -6,6 +6,7 @@ alias ta="tmux attach -t"
 alias tn="tmux new -s"
 alias tr="tmux rename -t"
 alias v="vim"
+alias p3="python3"
 
 # Everything below this line was here by default
 
