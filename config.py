@@ -255,3 +255,5 @@ c.url.default_page = "about:blank"
 c.url.start_pages = ["about:blank"]
 c.url.searchengines['DEFAULT'] = 'https://www.google.com/search?hl=en&q={}'
 c.new_instance_open_target = "tab-bg"
+config.unbind('d', mode='normal')
+config.bind('dd', 'tab-close', mode='normal')
