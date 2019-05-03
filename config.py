@@ -60,3 +60,4 @@ c.url.searchengines['DEFAULT'] = 'https://www.google.com/search?hl=en&q={}'
 c.new_instance_open_target = "tab-bg"
 config.unbind('d', mode='normal')
 config.bind('dd', 'tab-close', mode='normal')
+c.content.user_stylesheets = "~/repos/solarized-dark-all-sites.css"

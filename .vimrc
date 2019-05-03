@@ -39,13 +39,10 @@ set background=dark
 set t_Co=256
 " ; =-> : no more WQ!
 nnoremap ; :
-" CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C> "+y
-vnoremap <C-Insert> "+y
-" CTRL-V and SHIFT-Insert are Paste
-map <C-V> "+gP
-map <S-Insert> "+gP
-cmap <C-V> <C-R>+
-cmap <S-Insert> <C-R>+
-" Use CTRL-Q to do what CTRL-V used to do
-noremap <C-Q> <C-V>
+" ctrl+c ctrl+v to copy/paste
+" ctrl-v must be invoked in insert or visual mode
+" ctrl-v in normal mode still does a visual block
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
