@@ -5,8 +5,10 @@ alias tl="tmux ls"
 alias ta="tmux attach -t"
 alias tn="tmux new -s"
 alias tr="tmux rename -t"
+alias tk="tmux kill-session -t"
 alias v="vim"
 alias p3="python3"
+alias sudo="sudo "
 
 # Everything below this line was here by default
 
