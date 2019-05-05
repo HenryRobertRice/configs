@@ -60,4 +60,10 @@ c.url.searchengines['DEFAULT'] = 'https://www.google.com/search?hl=en&q={}'
 c.new_instance_open_target = "tab-bg"
 config.unbind('d', mode='normal')
 config.bind('dd', 'tab-close', mode='normal')
+config.unbind('m', mode='normal')
+config.unbind('M', mode='normal')
+config.bind('m', 'spawn mpv {url}', mode='normal')
+config.bind('M', 'hint links spawn mpv {url}', mode='normal')
+
+# stylesheets
 c.content.user_stylesheets = "global-dark-style.css"
