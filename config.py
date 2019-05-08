@@ -53,11 +53,14 @@ c.colors.prompts.fg = "#333333"
 c.colors.prompts.bg = "#DDDDDD"
 c.colors.prompts.selected.bg = "#4779B3"
 
-# keybindings
+# general settings
 c.url.default_page = "about:blank"
 c.url.start_pages = ["about:blank"]
 c.url.searchengines['DEFAULT'] = 'https://www.google.com/search?hl=en&q={}'
+c.url.searchengines['y'] = 'https://www.youtube.com/results?search_query={}'
 c.new_instance_open_target = "tab-bg"
+
+# keybindings
 config.unbind('d', mode='normal')
 config.bind('dd', 'tab-close', mode='normal')
 config.unbind('m', mode='normal')
