@@ -2,17 +2,84 @@
 set -o vi
 # aliases
 alias tl="tmux ls"
-alias ta="tmux attach -t"
-alias tn="tmux new -s"
+alias ta="tmux -2 attach -t"
+alias tn="tmux -2 new -s"
 alias tr="tmux rename -t"
 alias tk="tmux kill-session -t"
-alias v="vim"
-alias p3="python3"
+alias v="nvim"
+alias p3="python3.13"
 alias sudo="sudo "
+alias gap="git add -p"
+alias gcm="git commit -m"
+alias gc="git commit"
+alias gs="git status"
+alias gl="git log"
+alias gu="git diff --name-only --diff-filter=U"
+alias gcb="git checkout -b"
+alias pi="pip3 install --force-reinstall"
+alias vnv="python3.13 -m venv venv; source venv/bin/activate"
+alias act="source venv/bin/activate"
+alias ag="ag $* --ignore-dir venv"
+alias agt="ag $* --ignore-dir venv --ignore-dir test"
+alias python="python3"
+alias dcd="docker-compose down"
+alias time='/usr/bin/time --f "real %E\nuser %U\n sys %S"'
+alias sbrc='source ~/.bashrc'
+alias vbrc='nvim ~/.bashrc'
+alias vvim='nvim ~/.config/nvim/init.vim'
+alias myip="ip route get 8.8.8.8 | grep -oP 'src \K[^ ]+'"
 
-# Everything below this line was here by default
+sshgo () {
+  ssh $1 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+}
 
-# ~/.bashrc: executed by bash(1) for non-login shells.
+gp () {
+  branch=$(echo $(git symbolic-ref HEAD) | cut -f3 -d '/')
+  if [[ $branch = "main" || $branch = "master" ]]; then
+    echo "Can't push to main or master."
+  else
+    git push origin $(echo $(git symbolic-ref HEAD) | cut -f3 -d '/')
+  fi
+}
+
+gpm () {
+  branch=$(echo $(git symbolic-ref HEAD) | cut -f3 -d '/')
+  git push origin $(echo $(git symbolic-ref HEAD) | cut -f3 -d '/')
+}
+
+findall () {
+  sudo find / -name $1 -not -path "/var/*" -not -path "/proc/*" -not -path "/dev/*" -not -path "/usr/share/icons/*" -not -path "/sys/*"
+}
+
+h () {
+  history | grep $1
+}
+
+nb () {
+  git checkout main || git checkout master
+  git pull
+  git checkout -b $1
+}
+
+timer () {
+  /usr/bin/countdown $1 2>/dev/null
+}
+
+export PATH="/home/henry/.local/kitty.app/bin:$HOME/.local/bin:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/bin:/home/henry/go/bin:$PATH"
+export TIMEFORMAT="MMmSS.FFs"
+
+# never ever let the screen sleep
+xset s off
+xset dpms 0 0 0
+xset -dpms s off
+
+# i always want my key added
+eval $(ssh-agent -s) &> /dev/null
+ssh-add ~/.ssh/id_rsa > /dev/null 2>&1
+ssh-add ~/.ssh/adtran-key > /dev/null 2>&1
+#ssh-add ~/.ssh/torkey.priv > /dev/null 2>&1
+
+# Everything below this line was here by default# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -129,3 +196,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# starship
+eval "$(starship init bash)"
